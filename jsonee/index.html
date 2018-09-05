@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Change Color</title>
+		<script>
+            var password = prompt('Please input the password:');
+            if (password == 'lasacacias'){alert('Correct')}
+            else{alert('False!!')}
+            function color(str){
+            	document.body.style.backgroundColor = str;
+            }
+		</script>
+		<style type="text/css">
+			#jsjzje{
+				width: 300px;
+				height: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<hr color="black" size="3" />
+       <h1 align="center">Welcome!</h1>
+       <input type="button" name="jsjzje" value="Change red" onclick="color('red')" >
+       <input type="button" name="jsjzje" value="Change yellow" onclick="color('yellow')" >
+       <input type="button" name="jsjzje" value="Change blue" onclick="color('blue')" >
+       <input type="button" name="jsjzje" value="Change purple" onclick="color('purple')" >
+       <input type="color" name="" id="chgColor" value="#ff0000" onchange="chgRandomColor()" >
+       <hr color="black" size="7" />
+       <script type="text/javascript">
+       	function chgColor(color){
+       		document.body.style.backgroundColor=color;
+       	}
+       	function chgRandomColor(){
+       		var chgColor=document.getElementById("chgColor");
+       		document.body.style.backgroundColor=chgColor.value;
+       	}
+       </script>
+	</body>
+</html>
