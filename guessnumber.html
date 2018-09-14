@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>GUESSNUMBER</title>
+		<style type="text/css">
+			.guessNumber{
+				width: 300px;
+				height: 300px;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				border: 1px solid #000;
+			}
+			.guessNumber h2{
+				text-align: center;
+			}
+			.guessNumber .guessC{
+				width: 250px;
+				margin: auto;
+			}
+			.guessNumber #numInput{
+				border: none;
+				outline: none;
+				border: 1px solid #000;
+				width: 237px;
+				height: 30px;
+				border-radius: 20px 20px 20px 20px;
+				text-indent: 15px;
+			}
+				.guessNumber #btnGuess{
+				border: none;
+				outline: none;
+				border: 1px solid #000;
+				width: 71px;
+				height: 31px;
+				border-radius: 0 0 30px 30px;
+				text-indent: 15px;
+				left: 84px;
+				right: 2px;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<hr align="top" size="6" color="crimson" />
+		<div class="guessNumber">
+			<h2 class="title">GUESSNUMBER</h2>
+			<div class="guessC">
+				<input id="numInput" type="number" placeholder="1-10 six chances" />
+				<input id="btnGuess" onclick="guess()" type="button" value="Guess"/>
+			</div>
+			<div class="tip">
+				<p>chance:<span id="chance">6</span></p>
+			    <p>history:</p>
+			    <p id="tipText"></p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var targetNum=parseInt(Math.random()*11);
+			console.log(targetNum);
+			var guessTimes=6;
+			var oNuminput=document.getElementById("numInput");
+			var oBtnguess=document.getElementById("btnGuess");
+			var oTiptext=document.getElementById("tipText");
+			var oChance=document.getElementById("chance");
+			function guess(){
+				if(oNuminput.value>targetNum){
+					oTiptext.innerHTML+="<br />smaller";
+					oNuminput.value="";
+					oNuminput.focus();
+					guessTimes-=1;
+					oChance.innerHTML=guessTimes;
+				}
+				else if(oNuminput.value<targetNum){
+					oTiptext.innerHTML+="<br />bigger";
+					oNuminput.value="";
+					oNuminput.focus();
+					guessTimes-=1;
+					oChance.innerHTML=guessTimes;
+				}
+				else if(oNuminput=targetNum){
+					oTiptext.innerHTML+="<br />CORRECT!!!";
+					oNuminput.value="";
+					oNuminput.focus();
+				}
+			}
+		</script>
+	</body>
+</html>
